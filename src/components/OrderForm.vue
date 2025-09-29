@@ -71,7 +71,7 @@ export default {
   methods: {
     async fetchProducts() {
       try {
-        const response = await fetch('https://product-service-h8gsc5gyeaa9aqaq.southafricanorth-01.azurewebsites.net/products');
+        const response = await fetch(`${process.env.PRODUCTS_URL}`);
         if (response.ok) {
           this.products = await response.json();
         } else {
@@ -89,7 +89,7 @@ export default {
       }
 
       try {
-        const response = await fetch('https://orders-service-h0d3dxawgyf8byeg.southafricanorth-01.azurewebsites.net/orders', {
+        const response = await fetch(`${process.env.ORDERS_URL}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
